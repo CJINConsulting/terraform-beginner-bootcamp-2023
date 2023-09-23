@@ -211,7 +211,7 @@ If we want to automatically approve an apply we can provide the auto-approve fla
 
 This will destroy all resources.
 
-If we want to automatically destory we can provide the auto-approve flag e.g. `terraform destroy --auto-approve`
+If we want to automatically destroy we can provide the auto-approve flag e.g. `terraform destroy --auto-approve`
 
 ### Terraform Lock Files
 
