@@ -235,4 +235,12 @@ If you lose this file, you lose knowing the state of your infrastructure.
 
 `.terraform` directory contains binaries for the providers.
 
+## AWS
 
+### S3 Bucket
+
+#### Naming Conventions
+
+When creating new buckets, double-check the rules around naming conventions.
+
+[Bucket Naming Rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html)
