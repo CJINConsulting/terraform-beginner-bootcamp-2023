@@ -244,3 +244,18 @@ If you lose this file, you lose knowing the state of your infrastructure.
 When creating new buckets, double-check the rules around naming conventions.
 
 [Bucket Naming Rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html)
+
+## Issues with Terraform Cloud Login and GitPod Workspace
+
+When attempting to run `terraform login` it will launch a view in the terminal to generate a token. However it doesn't work as expected in GitPod VSCode in the browser.
+
+Workaround is to manually generate a token in Terraform Cloud
+
+```
+https://app.terraform.io/app/settings/tokens
+```
+
+Copy the key value created.
+
+Run `terraform login`, press `q` to quit, then enter your copied at the token prompt.
+
