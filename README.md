@@ -259,3 +259,4 @@ Copy the key value created.
 
 Run `terraform login`, press `q` to quit, then enter your copied at the token prompt.
 
+We have automated the process with the following bash script [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
