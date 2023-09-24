@@ -1,11 +1,20 @@
 terraform {
+
+  cloud {
+    organization = "colin_piper"
+
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
+
   required_providers {
     random = {
       source  = "hashicorp/random"
       version = "3.5.1"
     }
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = "5.17.0"
     }
   }
@@ -19,8 +28,8 @@ provider "random" {
 
 # https://registry.terraform.io/providers/hashicorp/random/latest/docs
 resource "random_string" "bucket_name" {
-  lower = true
-  upper = false
+  lower   = true
+  upper   = false
   length  = 32
   special = false
 }
