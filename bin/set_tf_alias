@@ -6,14 +6,14 @@ BASH_PROFILE_PATH="$HOME/.bash_profile"
 # Check if the `tf` alias already exists in the .bash_profile file.
 if grep -q "alias tf=" "$BASH_PROFILE_PATH"; then
   # The `tf` alias already exists. Do nothing.
-  echo "The `tf` alias already exists in your .bash_profile."
+  echo "The 'tf' alias already exists in your .bash_profile."
 else
   # The `tf` alias does not exist. Add it to the .bash_profile file.
-  echo "alias tf='terraform'" >> "$BASH_PROFILE_PATH"
+  echo 'alias tf="terraform"' >> "$BASH_PROFILE_PATH"
 
   # Source the .bash_profile file to make the alias available.
   source "$BASH_PROFILE_PATH"
 
   # Print a message to let the user know that the alias has been added.
-  echo "The `tf` alias has been added to your .bash_profile."
+  echo "The 'tf' alias has been added to your .bash_profile."
 fi
