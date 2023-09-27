@@ -260,3 +260,24 @@ Copy the key value created.
 Run `terraform login`, press `q` to quit, then enter your copied at the token prompt.
 
 We have automated the process with the following bash script [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
+
+### Terraform Cloud variables also need setting
+
+After migrating to Terraform Cloud, you may get a similar error hen running the `terraform plan`:
+```
+Error: No valid credential sources found
+│ 
+│   with provider["registry.terraform.io/hashicorp/aws"],
+│   on main.tf line 33, in provider "aws":
+│   33: provider "aws" {
+│ 
+│ Please see https://registry.terraform.io/providers/hashicorp/aws
+│ for more information about providing credentials.
+│ 
+│ Error: failed to refresh cached credentials, no EC2 IMDS role found,
+│ operation error ec2imds: GetMetadata, request canceled, context deadline
+│ exceeded
+```
+The variables stored in the console will also need to be added as environment variables in the Terraform Cloud Platform Variables
+- https://app.terraform.io/app/<your_user_name>/workspaces/<your_workspace_name>/variables
+- Set these to the 'env' category or else they won't be recognised
