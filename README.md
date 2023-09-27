@@ -279,5 +279,5 @@ Error: No valid credential sources found
 │ exceeded
 ```
 The variables stored in the console will also need to be added as environment variables in the Terraform Cloud Platform Variables
-- https://app.terraform.io/app/<your_user_name>/workspaces/<your_workspace_name>/variables
+- `https://app.terraform.io/app/<your_user_name>/workspaces/<your_workspace_name>/variables`
 - Set these to the 'env' category or else they won't be recognised
