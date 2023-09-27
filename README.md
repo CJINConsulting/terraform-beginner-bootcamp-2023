@@ -263,7 +263,7 @@ We have automated the process with the following bash script [bin/generate_tfrc_
 
 ### Terraform Cloud variables also need setting
 
-After migrating to Terraform Cloud, you may get a similar error hen running the `terraform plan`:
+After migrating to Terraform Cloud, you may get a similar error when running the `terraform plan`:
 ```
 Error: No valid credential sources found
 │ 
