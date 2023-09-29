@@ -1,5 +1,31 @@
 # Terraform Beginner Bootcamp 2023
 
+## Table of Contents
+
+- [Semantic Versioning](#semantic-versioning-%EF%B8%8F)
+- [Install the Terraform CLI](#install-the-terraform-cli)
+    - [Considerations with the Terraform CLI changes](#considerations-with-the-terraform-cli-changes)
+    - [Considerations for Linux distibution](#considerations-for-linux-distibution)
+    - [Refactoring into Bash Scripts](#refactoring-into-bash-scripts)
+- [GitPod Lifecycle (Before, Init, Command)](#gitpod-lifecycle-before-init-command)
+- [Working with Env Vars](#working-with-env-vars)
+    - [Setting and unsetting Env Vars](#setting-and-unsetting-env-vars)
+    - [Printing Vars](#printing-vars)
+    - [Scoping of Env Vars](#scoping-of-env-vars)
+    - [Persisting Env Vars in GitPod](#persisting-env-vars-in-gitpod)
+- [AWS CLI Installation](#aws-cli-installation)
+- [Terraform Basics](#terraform-basics)
+    - [Terraform Registry](#terraform-registry)
+    - [Terraform Console](d#terraform-console)
+    - [Terraform Lock Files](#terraform-lock-files)
+    - [Terraform State Files](#terraform-state-files)
+    - [Terraform Directory](#terraform-directory)
+- [AWS](#aws)
+    - [S3 Bucket](#s3-bucket)
+- [Issues with Terraform Cloud Login and GitPod Workspace](#issues-with-terraform-cloud-login-and-gitpod-workspace)
+    - [Terraform Cloud variables also need setting](#terraform-cloud-variables-also-need-setting)
+
+# Semantic Versioning 🧙‍♂️
 This project is going to utilise semantic versioning for its tagging.
 [semver.org](https://semver.org/)
 
@@ -101,7 +127,7 @@ We can list out all Environment Variables using the `env` command.
 
 We can filter specific env vars using grep e.g. `env | grep AWS_`
 
-#### Setting and unsetting Env Vars
+### Setting and unsetting Env Vars
 
 In the terminal we can set using `export HELLO='world'`
 
