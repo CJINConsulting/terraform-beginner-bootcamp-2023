@@ -122,3 +122,55 @@ Using the source, we can import the module from various places e.g.
 - Terraform Registry
 
 [Module Sources](https://developer.hashicorp.com/terraform/language/modules/sources)
+
+## Considerations when using ChatGPT to write Terraform
+
+LLMs such as ChatGPT ay not be trained on the latest documentation or information about Terraform.
+
+It may likely produce older examples that could be deprecated. This may especially affect provider configuration.
+
+## Working with files in Terraform
+
+### Fileexists function
+
+This is a builtin terraform function to check for the existence of a file.
+
+```tf
+condition = fileexists(var.error_html_filepath)`
+```
+
+https://developer.hashicorp.com/terraform/language/functions/fileexists
+
+### Filemd5
+
+This hashes the contents of a file rather than the filename string.
+
+One usecase is that adding this parameter to the resource allows terraform to recognise if the file contents have changed, and apply the updated file.
+
+```tf
+resource "aws_s3_object" "index_html" {
+  bucket = aws_s3_bucket.website_bucket.bucket
+  key = "index.html"
+  source = "${path.root}/public/index.html"
+  etag = filemd5("${path.root}/public/index.html")
+}
+```
+
+https://developer.hashicorp.com/terraform/language/functions/filemd5
+
+### Path Variable
+
+In Terraform there is a special variable called `path` that allows us to reference local paths.
+
+- path.module
+- path.root
+
+[Working with Files in Terraform](https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info)
+
+
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object
+resource "aws_s3_object" "index_html" {
+  bucket = aws_s3_bucket.website_bucket.bucket
+  key = "index.html"
+  source = "${path.root}/public/index.html"
+}
