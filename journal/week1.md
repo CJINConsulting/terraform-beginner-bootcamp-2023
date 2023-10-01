@@ -260,3 +260,66 @@ resource "terraform_data" "content_version" {
 ```
 
 [Terraform Data](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
+
+## Provisioners
+
+Provisioners allow you to execute commands on compute instances e.g. an AWS CLI Command.
+
+They are not recommended for use by Hashicorp because configuration management tools like Ansible are a better fit, but the functionality exists.
+
+```tf
+<<EOT
+hello
+world
+EOT
+```
+
+### Local-exec
+
+This will execute commands on a machine running the terraform commands e.g. plan or apply.
+
+```tf
+resource "aws_instance" "web" {
+  # ...
+
+  provisioner "local-exec" {
+    command = "echo The server's IP address is ${self.private_ip}"
+  }
+}
+
+```
+
+[local-exec](https://developer.hashicorp.com/terraform/language/resources/provisioners/local-exec)
+
+### Remote-exec
+
+This will execute commands on a machine which you target. You will need to provide credentials such as SSH to get into the machine.
+
+```tf
+resource "aws_instance" "web" {
+  # ...
+
+  # Establishes connection to be used by all
+  # generic remote provisioners (i.e. file/remote-exec)
+  connection {
+    type     = "ssh"
+    user     = "root"
+    password = var.root_password
+    host     = self.public_ip
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "puppet apply",
+      "consul join ${aws_instance.web.private_ip}",
+    ]
+  }
+}
+```
+
+[remote-exec](https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec)
+
+
+[heredoc strings](https://developer.hashicorp.com/terraform/language/expressions/strings#heredoc-strings)
+
+[Provisioners are a last resort](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax#provisioners-are-a-last-resort)
