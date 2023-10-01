@@ -35,3 +35,12 @@ variable "error_html_filepath" {
     error_message = "The provided path for error.html does not exist"
   } 
 }
+
+variable "content_version" {
+  type        = number
+  description = "The content version. Should be a postive integer."
+  validation {
+    condition     = var.content_version >= 1 && ceil(var.content_version) == floor(var.content_version)
+    error_message = "Value must be a positive integer starting from 1"
+  }
+}
