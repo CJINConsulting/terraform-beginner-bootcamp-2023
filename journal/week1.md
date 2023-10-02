@@ -323,3 +323,16 @@ resource "aws_instance" "web" {
 [heredoc strings](https://developer.hashicorp.com/terraform/language/expressions/strings#heredoc-strings)
 
 [Provisioners are a last resort](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax#provisioners-are-a-last-resort)
+
+## For Each Expressions
+
+For Each allows us to enumerate over complex data types.
+
+```sh
+[for s in var.list : upp(s)]
+```
+
+This is mostly useful when you are creating multiples of a cloud resource and you want to reduce the amount of repetitive code.
+[For Each Expressions](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
+
+https://developer.hashicorp.com/terraform/language/functions/fileset
