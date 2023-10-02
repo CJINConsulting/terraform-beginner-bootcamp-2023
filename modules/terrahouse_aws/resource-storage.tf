@@ -73,3 +73,15 @@ resource "aws_s3_bucket_policy" "default" {
 resource "terraform_data" "content_version" {
   input = var.content_version
 }
+
+resource "aws_s3_object" "upload_assets" {
+  for_each = fileset(var.assets_path, "*.{jpg,ng,gif}")
+  bucket = aws_s3_bucket.website_bucket.bucket
+  key = "assets/${each.key}"
+  source = "${var.assets_path}/${each.key}"
+  etag = filemd5("${var.assets_path}/${each.key}")
+  lifecycle {
+    replace_triggered_by = [ terraform_data.content_version.output ]
+    ignore_changes = [ etag ]
+  }
+}
