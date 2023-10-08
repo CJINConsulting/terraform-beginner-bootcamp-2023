@@ -59,5 +59,16 @@ You can create a web-server in a single file.
 
 [Sinatra Web Server](https://sinatrarb.com/)
 
+## CRUD
+
+Terraform Provider resources utilise CRUD.
+
+CRUD is an acronym for Create, Read, Update, and Delete.
+
+https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+
+
+
+
 
 https://www.hashicorp.com/blog/writing-custom-terraform-providers
