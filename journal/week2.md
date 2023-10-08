@@ -58,3 +58,6 @@ It;s great for mock or development servers, or for very simple projects.
 You can create a web-server in a single file.
 
 [Sinatra Web Server](https://sinatrarb.com/)
+
+
+https://www.hashicorp.com/blog/writing-custom-terraform-providers
