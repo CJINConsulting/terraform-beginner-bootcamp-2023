@@ -77,7 +77,7 @@ resource "terraform_data" "content_version" {
 }
 
 resource "aws_s3_object" "upload_assets" {
-  for_each = fileset(var.assets_path, "*.{jpg,ng,gif}")
+  for_each = fileset(var.assets_path, "*.{jpg,png,gif}")
   bucket = aws_s3_bucket.website_bucket.bucket
   key = "assets/${each.key}"
   source = "${var.assets_path}/${each.key}"

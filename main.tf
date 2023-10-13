@@ -32,13 +32,12 @@ module "terrahouse_aws" {
 }
 
 resource "terratowns_home" "home" {
-  name = "Games that "
+  name = "Sensible World of Soccer (SWOS)"
   description = <<DESCRIPTION
-These are games from my childhood that were fun to play.
-This page gives a brief description of those games and some reasons
-why you should try them!
+Sensible World of Soccer (SWOS), is a timeless classic that holds a special place in my heart. 
+Released in the early 1990s, this football game was the pioneer for playable career modes.
   DESCRIPTION
   domain_name = module.terrahouse_aws.cloudfront_url
   town = "missingo"
-  content_version = 1
+  content_version = 2
 }
