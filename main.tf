@@ -36,7 +36,7 @@ Sensible World of Soccer (SWOS), is a timeless classic that holds a special plac
 Released in the early 1990s, this football game was the pioneer for playable career modes.
   DESCRIPTION
   domain_name     = module.home_swos_hosting.domain_name
-  town            = "missingo"
+  town            = "gamers-grotto"
   content_version = var.swos.content_version
 }
 
@@ -55,6 +55,6 @@ It is known for its stunning scenery, delicious food, and friendly people.
 If you are looking for a unique and unforgettable travel experience, Japan is the perfect destination for you.
   DESCRIPTION
   domain_name = module.home_japan_hosting.domain_name
-  town = "missingo"
+  town = "the-nomad-pad"
   content_version = var.japan.content_version
 }
